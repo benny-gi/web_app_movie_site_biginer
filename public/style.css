@@ -1,0 +1,130 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #131720;
+    font-family: sans-serif;
+    color: white;
+}
+
+h3, h2 {
+    color: white;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #131721;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topnav a {
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.search-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+form {
+    background-color: #151f30;
+    width: 300px;
+    height: 43px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+}
+
+input, textarea {
+    all: unset;
+    font: 15px system-ui;
+    width: 100%;
+    padding: 6px 9px;
+    color: whitesmoke;
+}
+
+textarea {
+    background-color: #151f30;
+    border-radius: 11px;
+    min-height: 100px;
+    margin-bottom: 10px;
+}
+
+.thumbnail {
+    width: 252.5px;
+    height: 350px;
+    border-radius: 19px;
+    object-fit: cover;
+}
+
+.card {
+    background-color: #151f30;
+    border-radius: 19px;
+    padding: 14px;
+    text-align: center;
+    margin: 10px;
+    width: 300px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+}
+
+#review-section {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.review-card {
+    background-color: #151f30;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.add-review {
+    margin-top: 30px;
+    background-color: #1c2536;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+button {
+    background-color: #242c3d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+button:hover {
+    background-color: #313a4f;
+}
+
+#back-button {
+    margin-bottom: 20px;
+}

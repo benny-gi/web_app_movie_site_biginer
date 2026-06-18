@@ -10,6 +10,12 @@
     "test": "echo 'Tests passed' && exit 0"
   },
   "dependencies": {
-    "cors": "^2.8.5"
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "helmet": "^8.2.0",
+    "mongodb": "^7.3.0",
+    "morgan": "^1.11.0",
+    "node-fetch": "^3.3.2"
   }
 }
