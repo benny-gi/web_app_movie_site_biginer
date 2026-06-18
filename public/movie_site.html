@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Watchers' Grail</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="topnav">
+        <a class="active" href="movie_site.html">Watchers' Grail</a>
+        <div class="search-container">
+            <form role="search" id="form">
+                <input type="search" id="query" placeholder="search...">
+            </form>
+        </div>
+    </div>
+
+    <div id="movie-section">
+        <section class="section" id="section">
+            <!-- Movie cards will be dynamically inserted here -->
+        </section>
+    </div>
+
+    <!-- Review Modal or Section (Hidden by default) -->
+    <div id="review-section" style="display: none;">
+        <button id="back-button">Back to Movies</button>
+        <h2 id="review-movie-title"></h2>
+        <div id="reviews-container">
+            <!-- Reviews will be dynamically inserted here -->
+        </div>
+        <div class="add-review">
+            <h3>Add a Review</h3>
+            <input type="text" id="new-review-user" placeholder="Your Name">
+            <textarea id="new-review-content" placeholder="Your Review"></textarea>
+            <button id="submit-review">Submit Review</button>
+        </div>
+    </div>
+
+</body>
+<script src="script.js"></script>
+
+</html>
