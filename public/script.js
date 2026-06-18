@@ -29,7 +29,7 @@ function returnMovies(url) {
             image.src = element.poster_path ? IMG_PATH + element.poster_path : "https://via.placeholder.com/250x350?text=No+Poster";
 
             const title = document.createElement('h3');
-            title.innerHTML = `${element.title}`;
+            title.textContent = element.title;
 
             const center = document.createElement('center');
             center.appendChild(image);
@@ -60,7 +60,7 @@ function showReviews(movieId, movieTitle) {
     currentMovieId = movieId;
     movieSection.style.display = "none";
     reviewSection.style.display = "block";
-    reviewMovieTitle.innerText = movieTitle;
+    reviewMovieTitle.textContent = movieTitle;
     loadReviews(movieId);
 }
 
@@ -69,17 +69,34 @@ function loadReviews(movieId) {
     fetch(REVIEWS_API + "movie/" + movieId).then(res => res.json()).then(function(data) {
         reviewsContainer.innerHTML = '';
         if (data.length === 0) {
-            reviewsContainer.innerHTML = 'No reviews yet.';
+            reviewsContainer.textContent = 'No reviews yet.';
         }
         data.forEach(review => {
             const div_review = document.createElement('div');
             div_review.setAttribute('class', 'review-card');
-            div_review.innerHTML = `
-                <p><strong>${review.user}</strong> (${new Date(review.date).toLocaleDateString()})</p>
-                <p>${review.review}</p>
-                <button onclick="deleteReview('${review._id}', '${review.user}')">Delete</button>
-                <button onclick="editReview('${review._id}', '${review.user}', '${review.review}')">Edit</button>
-            `;
+
+            const pUser = document.createElement('p');
+            const strongUser = document.createElement('strong');
+            strongUser.textContent = review.user;
+            pUser.appendChild(strongUser);
+            pUser.appendChild(document.createTextNode(` (${new Date(review.date).toLocaleDateString()})`));
+
+            const pReview = document.createElement('p');
+            pReview.textContent = review.review;
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'Delete';
+            deleteBtn.onclick = () => deleteReview(review._id, review.user);
+
+            const editBtn = document.createElement('button');
+            editBtn.textContent = 'Edit';
+            editBtn.onclick = () => editReview(review._id, review.user, review.review);
+
+            div_review.appendChild(pUser);
+            div_review.appendChild(pReview);
+            div_review.appendChild(deleteBtn);
+            div_review.appendChild(editBtn);
+
             reviewsContainer.appendChild(div_review);
         });
     });
@@ -117,7 +134,7 @@ submitReviewButton.onclick = () => {
     });
 };
 
-window.deleteReview = function(id, user) {
+function deleteReview(id, user) {
     if (confirm("Are you sure you want to delete this review?")) {
         fetch(REVIEWS_API + id, {
             method: 'DELETE',
@@ -132,7 +149,7 @@ window.deleteReview = function(id, user) {
     }
 }
 
-window.editReview = function(id, user, oldReview) {
+function editReview(id, user, oldReview) {
     const newReview = prompt("Edit your review:", oldReview);
     if (newReview && newReview !== oldReview) {
         fetch(REVIEWS_API + id, {

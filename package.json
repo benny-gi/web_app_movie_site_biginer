@@ -1,21 +1,22 @@
 {
-  "name": "index",
+  "name": "watchers-grail",
   "version": "1.0.0",
-  "description": "Backend for site: watchers",
+  "description": "A movie review site with secure backend and persistent storage",
   "license": "ISC",
   "author": "",
   "type": "module",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo 'Tests passed' && exit 0"
   },
   "dependencies": {
-    "cors": "^2.8.6",
-    "dotenv": "^17.4.2",
-    "express": "^5.2.1",
-    "helmet": "^8.2.0",
-    "mongodb": "^7.3.0",
-    "morgan": "^1.11.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "mongodb": "^6.10.0",
+    "morgan": "^1.10.0",
     "node-fetch": "^3.3.2"
   }
 }

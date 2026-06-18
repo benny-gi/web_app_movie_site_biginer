@@ -21,7 +21,7 @@ export default class ReviewsDAO {
         user: user,
         date: date,
         review: review,
-        movie_id: movieId,
+        movie_id: movieId.toString(), // Ensure movie_id is stored as string
       }
 
       return await reviews.insertOne(reviewDoc)
@@ -70,7 +70,8 @@ export default class ReviewsDAO {
 
   static async getReviewsByMovieId(movieId) {
     try {
-      const cursor = await reviews.find({ movie_id: movieId })
+      // Find reviews with movie_id matching as string
+      const cursor = await reviews.find({ movie_id: movieId.toString() })
       return cursor.toArray()
     } catch (e) {
       console.error(`Unable to get reviews: ${e}`)
